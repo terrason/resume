@@ -126,7 +126,7 @@ const Header = styled(UnstyledHeader)`
   margin-top: 2.8em;
 
   &:first-child {
-    margin-top: 2cm;
+    margin-top: 2.6cm;
   }
 
   > .username {
@@ -369,7 +369,70 @@ const Experiences = styled(UnstyledExperiences)`
     display: block;
   }
 `;
-const Experience = styled.li``;
+function UnstyledExperience({ className, position, company, period, children }) {
+  return (
+    <li className={className}>
+      <h3 className="position">{position}</h3>
+      <div className="meta">
+        <span>{company}</span> | <span>{period}</span>
+      </div>
+      {children}
+    </li>
+  );
+}
+const Experience = styled(UnstyledExperience)`
+  > .position {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 0;
+  }
+  > .meta {
+    font-size: 1.2em;
+  }
+  p {
+    margin-bottom: 0;
+  }
+  li {
+    list-style-type: disc;
+  }
+`;
+function UnstyledReference({ className, company, position, mobile, children }) {
+  return (
+    <li className={className}>
+      <label className="name">{children}</label>
+      <div className="corp-pos">
+        <span className="company">{company}</span> | <span className="position">{position}</span>
+      </div>
+      <div className="contact">
+        <FaMobileAlt className="icon" />
+        <span className="text">{mobile}</span>
+      </div>
+    </li>
+  );
+}
+const Reference = styled(UnstyledReference)`
+  display: block;
+
+  > .name {
+    display: block;
+    font-weight: bold;
+  }
+
+  > .corp-pos,
+  > .contact {
+    display: block;
+  }
+
+  .icon,
+  .text {
+    display: inline-block;
+    vertical-align: middle;
+  }
+  .icon {
+    margin-right: 0.5em;
+  }
+
+`;
 function Resume() {
   useEffect(() => {
     function preventDefault(e) {
@@ -391,13 +454,21 @@ function Resume() {
           <Header role="Full-stack Developer">PEI LI</Header>
           <Section aside title="SKILLS">
             <AsideList>
-              <Skill proficiency="60">English</Skill>
-              <Skill proficiency="60">Project Planning</Skill>
-              <Skill proficiency="50">Leadership</Skill>
-              <Skill proficiency="75">Software Architecture</Skill>
-              <Skill proficiency="85">Software Design</Skill>
-              <Skill proficiency="60">API Design</Skill>
-              <Skill proficiency="90">Study & Research</Skill>
+              <Skill proficiency="90">Java</Skill>
+              <Skill proficiency="80">HTML/CSS</Skill>
+              <Skill proficiency="90">Javascript</Skill>
+              <Skill proficiency="80">Spring Boot</Skill>
+              <Skill proficiency="65">Spring Cloud</Skill>
+              <Skill proficiency="35">DDD</Skill>
+              <Skill proficiency="70">Git/SVN</Skill>
+              <Skill proficiency="65">MySQL</Skill>
+              <Skill proficiency="55">Ehcache/Redis</Skill>
+              <Skill proficiency="50">Kafka/RabbitMQ</Skill>
+              <Skill proficiency="40">Jenkins+K8s+Rancher</Skill>
+              <Skill proficiency="50">Bash</Skill>
+              <Skill proficiency="50">Nodejs</Skill>
+              <Skill proficiency="65">React</Skill>
+              <Skill proficiency="90">OmniPlan</Skill>
             </AsideList>
           </Section>
           <Section aside title="AWARD">
@@ -432,8 +503,8 @@ function Resume() {
             </p>
             <p>
               <strong>I am passionate about saving development costs by graceful software design.</strong> I have
-              introduced a communication driven modeling in my software design, which is very inspired by
-              DDD. Doing the right way, reducing code complexity, saving development cost.
+              introduced a communication driven modeling in my software design, which is very inspired by DDD. Doing the
+              right way, reducing code complexity, saving development cost.
             </p>
             <p>
               I am a voracious reader and that hobby has honed my ability to learn new concepts quickly and ask
@@ -444,10 +515,32 @@ function Resume() {
           </Section>
           <Section title="EXPERIENCE">
             <Experiences>
-              <Experience>asfefef</Experience>
-              <Experience>asfefef</Experience>
-              <Experience>asfefef</Experience>
-              <Experience>asfefef</Experience>
+              <Experience
+                position="Java Full-Stack Developer & Team Leader"
+                company="Anhui Aisino Co., Ltd."
+                period="2018 - Present"
+              >
+                <p>
+                  Break down the requirements specifications, design system architecture, and lead the team programing
+                  and documenting.
+                </p>
+                <ul>
+                  <li>Led the design and development of a Double-entry Accounting Financial System</li>
+                  <li>
+                    Assisted in requirements analysis, High Level Design, Low Level Design, and complex code development
+                  </li>
+                  <li>
+                    Collaborated with 3 internal departments, and 12 junior developers to coordinate the delivery of the
+                    Accounting Application
+                  </li>
+                  <li>Designed complex solution of accounting and reporting</li>
+                  <li>Made the server-end codebase high maintainable with DDD.</li>
+                  <li>
+                    Made the front-end codebase clean with creating 20+ reusable VUE components, saved development cost
+                    by 200 hours, and saving maintain cost in future.
+                  </li>
+                </ul>
+              </Experience>
             </Experiences>
           </Section>
         </Main>
@@ -455,28 +548,28 @@ function Resume() {
       <Page>
         <Aside>
           <Header role="Full-stack Developer">PEI LI</Header>
-          <Section aside title="TECHNICAL">
+          <Section aside title="PROFESSIONAL">
             <AsideList dense>
-              <Skill proficiency="80">Git/SVN</Skill>
-              <Skill proficiency="80">HTML/CSS</Skill>
-              <Skill proficiency="90">Javascript</Skill>
-              <Skill proficiency="75">React</Skill>
-              <Skill proficiency="60">Bash</Skill>
-              <Skill proficiency="60">Nodejs</Skill>
-              <Skill proficiency="40">Python</Skill>
-              <Skill proficiency="90">Java</Skill>
-              <Skill proficiency="90">Spring Framework</Skill>
-              <Skill proficiency="90">Spring Boot</Skill>
-              <Skill proficiency="75">Spring Cloud</Skill>
-              <Skill proficiency="80">Spring Data JPA</Skill>
-              <Skill proficiency="90">Mybatis</Skill>
-              <Skill proficiency="75">DDD</Skill>
-              <Skill proficiency="75">Linux</Skill>
-              <Skill proficiency="75">MySQL</Skill>
-              <Skill proficiency="65">Ehcache/Redis</Skill>
-              <Skill proficiency="60">Kafka/RabbitMQ</Skill>
-              <Skill proficiency="50">Jenkins+K8s+Rancher</Skill>
-              <Skill proficiency="90">OmniPlan</Skill>
+              <Skill proficiency="60">English</Skill>
+              <Skill proficiency="60">Project Planning</Skill>
+              <Skill proficiency="50">Leadership</Skill>
+              <Skill proficiency="65">Software Architecture</Skill>
+              <Skill proficiency="75">Software Design</Skill>
+              <Skill proficiency="60">API Design</Skill>
+              <Skill proficiency="90">Study & Research</Skill>
+            </AsideList>
+          </Section>
+          <Section aside title="REFERENCES">
+            <AsideList>
+              <Reference position="Department Manager" company="Aisino" mobile="18919680839">
+                Miss. Pan
+              </Reference>
+              <Reference position="Founder" company="ChenXun InfoTech" mobile="13515661860">
+                Mr. Li
+              </Reference>
+              <Reference position="Director" company="Etuo" mobile="18055119269">
+                Mr. Wan
+              </Reference>
             </AsideList>
           </Section>
           <Section aside title="INTERESTS">
@@ -495,7 +588,45 @@ function Resume() {
             </IconContext.Provider>
           </Section>
         </Aside>
-        <Main continuing="Continued -">sdfefsdfaef</Main>
+        <Main continuing="Continued -">
+          <Section title="EXPERIENCE">
+            <Experiences>
+              <Experience
+                position="Software Engineer & Team Leader"
+                company="Anhui ChenXun InfoTech Co., Ltd."
+                period="2016 - 2018"
+              >
+                <p>
+                  Maintained Lenyar System, Architected the new back-end as our primary product changed from Monolithic
+                  to Microservice resulting in offering increased flexibility to to value-added service.
+                </p>
+                <ul>
+                  <li>Refactor the old codebase with Spring Cloud to improve expandability</li>
+                  <li>Built and maintained application that scaled to 1M daily users</li>
+                  <li>Extended application and implemented value-add microservices, like AD, Activity Scheduling</li>
+                  <li>Scripting Bash and Nodejs tools to built a CI/DI workflow</li>
+                  <li>
+                    Collaborated with 4 developers, communicating with cross-functional teams and cross-city
+                    stakeholders
+                  </li>
+                </ul>
+              </Experience>
+              <Experience position="Java Full-Stack Developer" company="Etuo Co., Ltd." period="2013 - 2016">
+                <p>Resolve software issues, developed new application, participated in design.</p>
+                <ul>
+                  <li>Implemented a preorder-traversal-tree solution to resolve a performance issue</li>
+                  <li>Optimized many mysql query, increased performance efficiency by 30% in average</li>
+                  <li>
+                    Used Nginx load balancing and redis caching to support 1000+ requests per second in business
+                    scenario of rush
+                  </li>
+                  <li>Implemented rich user experience by creating 20+ new features utilizing Bootstrap/JQuery</li>
+                  <li>Developed and maintained 30+ REST APIs writing documentation using OpenAPI specifications</li>
+                </ul>
+              </Experience>
+            </Experiences>
+          </Section>
+        </Main>
       </Page>
     </>
   );
