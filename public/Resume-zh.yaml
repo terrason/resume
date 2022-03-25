@@ -1,0 +1,117 @@
+fullname: 李沛
+role: 全栈开发工程师
+location: 安徽合肥
+avatar: ./avatar.jpg
+email: jterraghost@gmail.com
+mobile: +86 189 1960 1457
+homepage: https://terrason.github.io
+skills:
+  - label: Java
+    proficiency: 90
+  - label: Java
+    proficiency: 90
+  - label: HTML/CSS
+    proficiency: 80
+  - label: Javascript
+    proficiency: 90
+  - label: Spring Boot
+    proficiency: 80
+  - label: Spring Cloud
+    proficiency: 65
+  - label: Git/SVN
+    proficiency: 70
+  - label: MySQL
+    proficiency: 65
+  - label: Ehcache/Redis
+    proficiency: 55
+  - label: Kafka/RabbitMQ
+    proficiency: 50
+  - label: Jenkins+K8s+Rancher
+    proficiency: 40
+    dense: true
+  - label: Bash
+    proficiency: 50
+  - label: Nodejs
+    proficiency: 50
+  - label: React
+    proficiency: 65
+  - label: OmniPlan
+    proficiency: 90
+awards:
+  - title: PMP 项目管理认证
+    period: 2020 - 2023
+education:
+  major: 电子信息工程
+  university: 安徽农业大学
+  period: 2005 - 2010
+professionals:
+  - label: 英语
+    proficiency: 60
+  - label: 项目计划
+    proficiency: 60
+  - label: 领导力
+    proficiency: 50
+  - label: 软件架构设计
+    proficiency: 75
+  - label: 学习钻研
+    proficiency: 90
+profile: |
+  **I am a creative Fullstack Developer, with +12 years experience in developing application from scratch to complex financial system.**
+  I have a strong foundation in Java, HTML/CSS and JavaScript. I enjoy solving real-life problems with clean, scalable and efficient solutions.
+
+  **I am passionate about saving development costs through elegance software design.**
+  I had introduced a communication driven modeling in my software design, which is very inspired by DDD. 
+  Doing the right way, reducing code complexity, saving development cost.
+
+  I am a voracious reader and that hobby has honed my ability
+  to learn new concepts quickly and ask insightful and meaningful questions.
+  After participating or leading in all phases of the software development lifecycle for many years,
+  I am seeking a growth opportunity within a meritocratic company,
+  **looking forward to mentoring to transition to a real software architect**.
+experiences:
+  - position: Java Full-Stack Developer & Team Leader
+    company: Anhui Aisino Co., Ltd.
+    period: 2018 - present
+    summary: Break down the requirements specifications, design system architecture, and lead the team programing and documenting.
+    bullets:
+      - Led the design and development of a Double-Entry Accounting Financial System, Assisted in
+        requirements analysis, software design, and complex code development
+      - Collaborated with 3 internal departments, and 12 junior developers to coordinate the delivery
+      - Designed complex solution of accounting and reporting
+      - Made the server-end codebase high maintainable with DDD
+      - Cleaned the front-end codebase by creating 20+ reusable VUE components,
+        saving 200 hours of development costs and future maintenance costs
+  - position: Software Engineer & Team Leader
+    company: Anhui ChenXun InfoTech Co., Ltd.
+    period: 2016 - 2018
+    summary: Maintained Lenyar System, Architected the new back-end as our primary product changed
+             from Monolithic to Microservice resulting in offering increased flexibility to to value-added service.
+    bullets:
+      - Refactor the old codebase with Spring Cloud to improve expandability
+      - Built and maintained application that scaled to 1M daily users
+      - Extended application and implemented value-add microservices, like AD, Activity Scheduling
+      - Scripting Bash and Nodejs tools to built a CI/DI workflow
+      - Collaborated with 4 developers, communicating with cross-functional teams and cross-city stakeholders
+  - position: Java Full-Stack Developer
+    company: Etuo Co., Ltd.
+    period: 2013 - 2016
+    summary: Resolve software issues, developed new application, participated in design.
+    bullets:
+      - Implemented a preorder-traversal-tree solution to resolve a performance issue
+      - Optimized many mysql query, increased performance efficiency by 30% in average
+      - Used Nginx load balancing and redis caching to support 1000+ requests per second in business scenario of rush
+      - Implemented rich user experience by creating 20+ new features utilizing Bootstrap/JQuery
+      - Developed and maintained 30+ REST APIs writing documentation using OpenAPI specifications
+references:
+  - name: 潘经理
+    position: 部门经理
+    company: 安徽航天信息
+    mobile: 18919680839
+  - name: 李总
+    position: 总经理
+    company: 安徽辰讯信息科技
+    mobile: 13515661860
+  - name: 宛工
+    position: 研发主管
+    company: 一拓通讯集团
+    mobile: 18055119269

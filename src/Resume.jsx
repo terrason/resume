@@ -1,5 +1,7 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import styled from "styled-components";
+import ReactMarkdown from "react-markdown";
+import yaml from "js-yaml";
 import { IoLocationSharp } from "react-icons/io5";
 import { IconContext } from "react-icons";
 import { SiItunes } from "react-icons/si";
@@ -130,6 +132,7 @@ const Header = styled(UnstyledHeader)`
   }
 
   > .username {
+    text-transform: capitalize;
     font-size: 4em;
     font-weight: bold;
     margin: 0;
@@ -163,7 +166,7 @@ const Section = styled(UnstyledSection)`
     font-size: 1.5em;
     font-weight: bold;
     margin: 0;
-    margin-top: 2em;
+    margin-top: 1.6em;
   }
 
   > .title + hr {
@@ -226,6 +229,7 @@ const Education = styled(UnstyledEducation)`
   > .major {
     display: block;
     font-weight: bold;
+    font-size: 0.9em;
   }
 
   > .college {
@@ -250,11 +254,12 @@ function UnstyledSkill({ className, proficiency, children }) {
   );
 }
 const Skill = styled(UnstyledSkill)`
-  margin-right: 1em;
+  margin-right: 2em;
   position: relative;
   > label {
     position: relative;
     z-index: 1;
+    font-size: ${(props) => (props.dense ? "0.9" : "1")}em;
   }
 `;
 function UnstyledProcessBar({ className, rate }) {
@@ -334,6 +339,7 @@ const VCard = styled(UnstyledVCard)`
     height: 53mm;
     float: left;
     margin-right: 3em;
+    filter: grayscale(1);
   }
   > .email {
     padding-top: 3cm;
@@ -385,12 +391,13 @@ const Experience = styled(UnstyledExperience)`
     font-size: 1.5em;
     font-weight: bold;
     margin-bottom: 0;
+    margin-top: 1em;
   }
   > .meta {
     font-size: 1.2em;
   }
   p {
-    margin-bottom: 0;
+    margin: 0;
   }
   li {
     list-style-type: disc;
@@ -431,9 +438,28 @@ const Reference = styled(UnstyledReference)`
   .icon {
     margin-right: 0.5em;
   }
-
 `;
-function Resume() {
+function Resume({ lang = "" }) {
+  const [resume, setResurme] = useState();
+  const filename = lang && lang !== "en" ? `Resume-${lang}.yaml` : "Resume.yaml";
+  useEffect(() => {
+    fetch(filename)
+      .then((resp) => {
+        if (!resp.ok) {
+          throw new Error("Unable to load: " + filename);
+        }
+        return resp.text();
+      })
+      .then((text) => {
+        const r = yaml.load(text);
+        console.log(r);
+        return r;
+      })
+      .then(setResurme)
+      .catch((err) => {
+        err && console.error(err);
+      });
+  }, [filename]);
   useEffect(() => {
     function preventDefault(e) {
       e.preventDefault();
@@ -446,99 +472,70 @@ function Resume() {
       document.title = originTitle;
     };
   }, []);
+  if (!resume) {
+    return null;
+  }
+  const {
+    fullname,
+    role,
+    location,
+    avatar,
+    email,
+    mobile,
+    homepage,
+    skills,
+    awards,
+    education,
+    professionals,
+    profile,
+    experiences,
+    references,
+  } = resume;
+  const exp0 = experiences[0] || {};
+  const exps = experiences.slice(1);
   return (
     <>
       <Page>
         <Aside>
-          <BookMarker>Hefei, Anhui, China</BookMarker>
-          <Header role="Full-stack Developer">PEI LI</Header>
+          <BookMarker>{location}</BookMarker>
+          <Header role={role}>{fullname}</Header>
           <Section aside title="SKILLS">
-            <AsideList>
-              <Skill proficiency="90">Java</Skill>
-              <Skill proficiency="80">HTML/CSS</Skill>
-              <Skill proficiency="90">Javascript</Skill>
-              <Skill proficiency="80">Spring Boot</Skill>
-              <Skill proficiency="65">Spring Cloud</Skill>
-              <Skill proficiency="35">DDD</Skill>
-              <Skill proficiency="70">Git/SVN</Skill>
-              <Skill proficiency="65">MySQL</Skill>
-              <Skill proficiency="55">Ehcache/Redis</Skill>
-              <Skill proficiency="50">Kafka/RabbitMQ</Skill>
-              <Skill proficiency="40">Jenkins+K8s+Rancher</Skill>
-              <Skill proficiency="50">Bash</Skill>
-              <Skill proficiency="50">Nodejs</Skill>
-              <Skill proficiency="65">React</Skill>
-              <Skill proficiency="90">OmniPlan</Skill>
+            <AsideList dense>
+              {skills.map(({ label, proficiency, dense },i) => (
+                <Skill key={i} proficiency={proficiency} dense={dense}>
+                  {label}
+                </Skill>
+              ))}
             </AsideList>
           </Section>
           <Section aside title="AWARD">
             <AsideList>
-              <Award period="2020 ~ 2023">Project Management Professional</Award>
+              {awards.map(({ title, period },i) => (
+                <Award key={i} period={period}>{title}</Award>
+              ))}
             </AsideList>
           </Section>
           <Section aside title="EDUCATION">
             <AsideList>
-              <Education period="2005 - 2010" major="Electronic Information Engineering">
-                Ahhui Agricultural University
+              <Education period={education.period} major={education.major}>
+                {education.university}
               </Education>
             </AsideList>
           </Section>
         </Aside>
-        <Main toBeContined="... continue on the back">
-          <VCard
-            fullname="Pei Li"
-            avatar="./avatar-template.jpg"
-            email="jterraghost@gmail.com"
-            mobile="+86 189 1960 1457"
-            homepage="https://terrason.github.io"
-          />
+        <Main toBeContined="... to be continued">
+          <VCard fullname={fullname} avatar={avatar} email={email} mobile={mobile} homepage={homepage} />
           <Section title="PROFILE">
-            <p>
-              <strong>
-                I am a creative Fullstack Developer, with +12 years experience in developing application from scratch to
-                complex financial system.
-              </strong>{" "}
-              I have a strong foundation in Java, HTML/CSS and JavaScript. I enjoy solving real-life problems with
-              clean, scalable and efficient solutions.
-            </p>
-            <p>
-              <strong>I am passionate about saving development costs by graceful software design.</strong> I have
-              introduced a communication driven modeling in my software design, which is very inspired by DDD. Doing the
-              right way, reducing code complexity, saving development cost.
-            </p>
-            <p>
-              I am a voracious reader and that hobby has honed my ability to learn new concepts quickly and ask
-              insightful and meaningful questions. After participating or leading in all phases of the software
-              development lifecycle for many years, I am seeking a growth opportunity within a meritocratic company,
-              <strong>looking forward to mentoring to transition to a real software architect.</strong>
-            </p>
+            <ReactMarkdown>{profile}</ReactMarkdown>
           </Section>
           <Section title="EXPERIENCE">
             <Experiences>
-              <Experience
-                position="Java Full-Stack Developer & Team Leader"
-                company="Anhui Aisino Co., Ltd."
-                period="2018 - Present"
-              >
-                <p>
-                  Break down the requirements specifications, design system architecture, and lead the team programing
-                  and documenting.
-                </p>
+              <Experience position={exp0.position} company={exp0.company} period={exp0.period}>
+                <p>{exp0.summary}</p>
                 <ul>
-                  <li>Led the design and development of a Double-entry Accounting Financial System</li>
-                  <li>
-                    Assisted in requirements analysis, High Level Design, Low Level Design, and complex code development
-                  </li>
-                  <li>
-                    Collaborated with 3 internal departments, and 12 junior developers to coordinate the delivery of the
-                    Accounting Application
-                  </li>
-                  <li>Designed complex solution of accounting and reporting</li>
-                  <li>Made the server-end codebase high maintainable with DDD.</li>
-                  <li>
-                    Made the front-end codebase clean with creating 20+ reusable VUE components, saved development cost
-                    by 200 hours, and saving maintain cost in future.
-                  </li>
+                  {exp0.bullets.map((bullet,i) => (
+                    <li key={i}>{bullet}</li>
+                  ))}
                 </ul>
               </Experience>
             </Experiences>
@@ -547,29 +544,21 @@ function Resume() {
       </Page>
       <Page>
         <Aside>
-          <Header role="Full-stack Developer">PEI LI</Header>
+          <Header role="Full-stack Developer">{fullname}</Header>
           <Section aside title="PROFESSIONAL">
             <AsideList dense>
-              <Skill proficiency="60">English</Skill>
-              <Skill proficiency="60">Project Planning</Skill>
-              <Skill proficiency="50">Leadership</Skill>
-              <Skill proficiency="65">Software Architecture</Skill>
-              <Skill proficiency="75">Software Design</Skill>
-              <Skill proficiency="60">API Design</Skill>
-              <Skill proficiency="90">Study & Research</Skill>
+              {professionals.map(({ label, proficiency },i) => (
+                <Skill key={i} proficiency={proficiency}>{label}</Skill>
+              ))}
             </AsideList>
           </Section>
           <Section aside title="REFERENCES">
             <AsideList>
-              <Reference position="Department Manager" company="Aisino" mobile="18919680839">
-                Miss. Pan
-              </Reference>
-              <Reference position="Founder" company="ChenXun InfoTech" mobile="13515661860">
-                Mr. Li
-              </Reference>
-              <Reference position="Director" company="Etuo" mobile="18055119269">
-                Mr. Wan
-              </Reference>
+              {references.map(({ name, position, company, mobile }) => (
+                <Reference key={name} position={position} company={company} mobile={mobile}>
+                  {name}
+                </Reference>
+              ))}
             </AsideList>
           </Section>
           <Section aside title="INTERESTS">
@@ -591,39 +580,16 @@ function Resume() {
         <Main continuing="Continued -">
           <Section title="EXPERIENCE">
             <Experiences>
-              <Experience
-                position="Software Engineer & Team Leader"
-                company="Anhui ChenXun InfoTech Co., Ltd."
-                period="2016 - 2018"
-              >
-                <p>
-                  Maintained Lenyar System, Architected the new back-end as our primary product changed from Monolithic
-                  to Microservice resulting in offering increased flexibility to to value-added service.
-                </p>
-                <ul>
-                  <li>Refactor the old codebase with Spring Cloud to improve expandability</li>
-                  <li>Built and maintained application that scaled to 1M daily users</li>
-                  <li>Extended application and implemented value-add microservices, like AD, Activity Scheduling</li>
-                  <li>Scripting Bash and Nodejs tools to built a CI/DI workflow</li>
-                  <li>
-                    Collaborated with 4 developers, communicating with cross-functional teams and cross-city
-                    stakeholders
-                  </li>
-                </ul>
-              </Experience>
-              <Experience position="Java Full-Stack Developer" company="Etuo Co., Ltd." period="2013 - 2016">
-                <p>Resolve software issues, developed new application, participated in design.</p>
-                <ul>
-                  <li>Implemented a preorder-traversal-tree solution to resolve a performance issue</li>
-                  <li>Optimized many mysql query, increased performance efficiency by 30% in average</li>
-                  <li>
-                    Used Nginx load balancing and redis caching to support 1000+ requests per second in business
-                    scenario of rush
-                  </li>
-                  <li>Implemented rich user experience by creating 20+ new features utilizing Bootstrap/JQuery</li>
-                  <li>Developed and maintained 30+ REST APIs writing documentation using OpenAPI specifications</li>
-                </ul>
-              </Experience>
+              {exps.map(({ position, company, period, summary, bullets },i) => (
+                <Experience key={i} position={position} company={company} period={period}>
+                  <p>{summary}</p>
+                  <ul>
+                    {bullets.map((bullet,i) => (
+                      <li key={i}>{bullet}</li>
+                    ))}
+                  </ul>
+                </Experience>
+              ))}
             </Experiences>
           </Section>
         </Main>

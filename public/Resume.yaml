@@ -1,0 +1,119 @@
+fullname: Pei Li
+role: Full-Stack Developer
+location: Hefei, Anhui, China
+avatar: ./avatar.jpg
+email: jterraghost@gmail.com
+mobile: +86 189 1960 1457
+homepage: https://terrason.github.io
+skills:
+  - label: Java
+    proficiency: 90
+  - label: Java
+    proficiency: 90
+  - label: HTML/CSS
+    proficiency: 80
+  - label: Javascript
+    proficiency: 90
+  - label: Spring Boot
+    proficiency: 80
+  - label: Spring Cloud
+    proficiency: 65
+  - label: Git/SVN
+    proficiency: 70
+  - label: MySQL
+    proficiency: 65
+  - label: Ehcache/Redis
+    proficiency: 55
+  - label: Kafka/RabbitMQ
+    proficiency: 50
+  - label: Jenkins+K8s+Rancher
+    proficiency: 40
+    dense: true
+  - label: Bash
+    proficiency: 50
+  - label: Nodejs
+    proficiency: 50
+  - label: React
+    proficiency: 65
+  - label: OmniPlan
+    proficiency: 90
+awards:
+  - title: Project Management Professional
+    period: 2020 - 2023
+education:
+  major: Electronic Information Engineering
+  university: Ahhui Agricultural University
+  period: 2005 - 2010
+professionals:
+  - label: English
+    proficiency: 60
+  - label: Project Planning
+    proficiency: 60
+  - label: Leadership
+    proficiency: 50
+  - label: Software Design
+    proficiency: 75
+  - label: API Design
+    proficiency: 60
+  - label: Study & Research
+    proficiency: 90
+profile: |
+  **I am a creative Fullstack Developer, with +12 years experience in developing application from scratch to complex financial system.**
+  I have a strong foundation in Java, HTML/CSS and JavaScript. I enjoy solving real-life problems with clean, scalable and efficient solutions.
+
+  **I am passionate about saving development costs through elegance software design.**
+  I had introduced a communication driven modeling in my software design, which is very inspired by DDD. 
+  Doing the right way, reducing code complexity, saving development cost.
+
+  I am a voracious reader and that hobby has honed my ability
+  to learn new concepts quickly and ask insightful and meaningful questions.
+  After participating or leading in all phases of the software development lifecycle for many years,
+  I am seeking a growth opportunity within a meritocratic company,
+  **looking forward to mentoring to transition to a real software architect**.
+experiences:
+  - position: Java Full-Stack Developer & Team Leader
+    company: Anhui Aisino Co., Ltd.
+    period: 2018 - present
+    summary: Break down the requirements specifications, design system architecture, and lead the team programing and documenting.
+    bullets:
+      - Led the design and development of a Double-Entry Accounting Financial System, Assisted in
+        requirements analysis, software design, and complex code development
+      - Collaborated with 3 internal departments, and 12 junior developers to coordinate the delivery
+      - Designed complex solution of accounting and reporting
+      - Made the server-end codebase high maintainable with DDD
+      - Cleaned the front-end codebase by creating 20+ reusable VUE components,
+        saving 200 hours of development costs and future maintenance costs
+  - position: Software Engineer & Team Leader
+    company: Anhui ChenXun InfoTech Co., Ltd.
+    period: 2016 - 2018
+    summary: Maintained Lenyar System, Architected the new back-end as our primary product changed
+             from Monolithic to Microservice resulting in offering increased flexibility to to value-added service.
+    bullets:
+      - Refactor the old codebase with Spring Cloud to improve expandability
+      - Built and maintained application that scaled to 1M daily users
+      - Extended application and implemented value-add microservices, like AD, Activity Scheduling
+      - Scripting Bash and Nodejs tools to built a CI/DI workflow
+      - Collaborated with 4 developers, communicating with cross-functional teams and cross-city stakeholders
+  - position: Java Full-Stack Developer
+    company: Etuo Co., Ltd.
+    period: 2013 - 2016
+    summary: Resolve software issues, developed new application, participated in design.
+    bullets:
+      - Implemented a preorder-traversal-tree solution to resolve a performance issue
+      - Optimized many mysql query, increased performance efficiency by 30% in average
+      - Used Nginx load balancing and redis caching to support 1000+ requests per second in business scenario of rush
+      - Implemented rich user experience by creating 20+ new features utilizing Bootstrap/JQuery
+      - Developed and maintained 30+ REST APIs writing documentation using OpenAPI specifications
+references:
+  - name: Miss. Pan
+    position: Department Manager
+    company: Aisino
+    mobile: 18919680839
+  - name: Mr. Li
+    position: Founder
+    company: ChenXun InfoTech
+    mobile: 13515661860
+  - name: Mr. Wan
+    position: Director
+    company: Etuo
+    mobile: 18055119269
