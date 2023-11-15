@@ -12,15 +12,11 @@ cd build
 # if you are deploying to a custom domain
 # echo 'www.example.com' > CNAME
 
-git init
+git init .
+git remote add github https://github.com/terrason/resume
 git checkout -b gh-pages
 git add -A
-git commit -m 'deploy'
-
-# if you are deploying to https://<USERNAME>.github.io
-git push -f git@github.com:terrason/terrason.github.io.git gh-pages
-
-# if you are deploying to https://<USERNAME>.github.io/<REPO>
-# git push -f git@github.com:<USERNAME>/<REPO>.git main:gh-pages
-
-cd -
+git commit -am 'deploy'
+git push github gh-pages --force
+cd ..
+rm -rf build
