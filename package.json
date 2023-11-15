@@ -2,6 +2,7 @@
   "name": "1or0.world",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://terrason.github.io/resume",
   "dependencies": {
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^12.0.0",
