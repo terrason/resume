@@ -1,0 +1,111 @@
+fullname: 李沛
+role: 全栈开发工程师
+location: 安徽合肥
+avatar: ./avatar.jpg
+email: jterraghost@gmail.com
+mobile: +86 189 1960 1457
+homepage: https://terrason.github.io/resume/
+skills:
+  - label: Java
+    proficiency: 90
+  - label: Java
+    proficiency: 90
+  - label: HTML/CSS
+    proficiency: 80
+  - label: Javascript
+    proficiency: 90
+  - label: Spring Boot
+    proficiency: 80
+  - label: Spring Cloud
+    proficiency: 65
+  - label: Git/SVN
+    proficiency: 70
+  - label: MySQL
+    proficiency: 65
+  - label: Ehcache/Redis
+    proficiency: 55
+  - label: Kafka/RabbitMQ
+    proficiency: 50
+  - label: Jenkins+K8s+Rancher
+    proficiency: 40
+    dense: true
+  - label: Bash
+    proficiency: 50
+  - label: Nodejs
+    proficiency: 50
+  - label: React
+    proficiency: 65
+  - label: OmniPlan
+    proficiency: 90
+awards:
+  - title: PMP 项目管理认证
+    period: 2020 - 2023
+education:
+  major: 电子信息工程
+  university: 安徽农业大学
+  period: 2005 - 2010
+professionals:
+  - label: 英语
+    proficiency: 60
+  - label: 项目计划
+    proficiency: 60
+  - label: 领导力
+    proficiency: 50
+  - label: 软件架构设计
+    proficiency: 75
+  - label: 学习钻研
+    proficiency: 90
+profile: |
+  **Java全栈开发程序员一枚，自2010年开始工作至今开发了数十个大小不等的应用，从简单工具脚本到复杂财务系统均有涉猎。**
+  在 Java、HTML/CSS 和 JavaScript 方面有扎实的基础。擅长用干净和高效的解决方案来解决软件问题。 
+
+  **热衷于通过优雅的软件设计来节省开发成本。**
+  受领域驱动设计（DDD）的启发，在软件设计中参悟了一套以沟通为驱动的建模方式。
+  合理的设计可以降低代码复杂度，节约开发成本。
+
+  热爱并快速学习新技术，在参与（或带领）软件开发生命周期的所有阶段多年后，
+  我正在寻找在精英公司中成长的机会， **期待新的工作能指导我过渡到真正的软件架构师** 。
+experiences:
+  - position: Java全栈开发 研发组长
+    company: 安徽航天信息有限公司
+    period: 2018 至今
+    summary: 分解需求规范，设计系统架构，并带领团队进行编程和文档化。
+    bullets:
+      - 主导设计和开发一个复式记账的财务系统，协助需求分析和复杂代码开发
+      - 与3个内部部门和12名初级开发人员合作协调并交付 
+      - 设计复杂的会计和报告解决方案 
+      - 借鉴领域驱动设计（DDD）的思维来设计后端代码，使其具有高度可维护性
+      - 创建20多个可重用的VUE组件，让前端代码库保持清洁，大约节省200小时的开发成本
+  - position: 软件工程师 研发经理
+    company: 安徽辰讯信息科技有限公司
+    period: 2016 - 2018
+    summary: 维护靓丫系统，随着我们的业务增值需要，以微服务架构构建了新的后端，从而为增值服务提供了更大的灵活性。
+    bullets:
+      - 使用 Spring Cloud 重构代码库以提高系统的扩展性
+      - 构建和维护的系统可支撑每天百万用户量
+      - 扩展系统并实现新的增值服务，如广告、宣传活动等
+      - 编写 Bash 和 Nodejs 工具脚本搭建 CI/DI 工作流
+      - 与4名处级开发人员合作，与跨职能团队和跨城市客户进行沟通
+  - position: Java全栈开发
+    company: 一拓通讯集团
+    period: 2013 - 2016
+    summary: 解决软件问题，开发新应用，参与设计。 
+    bullets:
+      - 实施了一个预排序遍历树解决方案来解决一个重大性能问题  
+      - 优化多条mysql查询，平均提升30%的性能效率
+      - 使用 Nginx 负载均衡和 redis 缓存，为当时的一个抢购业务场景支撑每秒1000+请求 
+      - 通过使用 Bootstrap/JQuery 创建 20 多个新功能来实现丰富的用户体验
+      - 使用 OpenAPI 规范开发和维护 30 多个 REST API 编写文档 
+references:
+  - name: 潘经理
+    position: 部门经理
+    company: 安徽航天信息
+    mobile: 18919680839
+  - name: 李总
+    position: 总经理
+    company: 安徽辰讯信息科技
+    mobile: 13515661860
+  - name: 宛工
+    position: 研发主管
+    company: 一拓通讯集团
+    mobile: 18055119269
